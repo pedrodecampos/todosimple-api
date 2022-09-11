@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 public class user {
 
     public static final String TABLE_NAME = "user";
-
+ // aa
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // gerando codigo
     @Column(name = "id", unique = true) // criando coluna //
