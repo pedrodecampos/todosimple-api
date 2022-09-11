@@ -1,18 +1,8 @@
 package com.lucasangelo.todosimple.moldes;
 
-
-
 import java.util.ArrayList;
 import java.util.List;
-
-//import java.util.ArrayList;
-//import java.util.List;
-
-// import java.util.List;
-// import java.util.Objects;
-
 import javax.persistence.Column;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,23 +12,15 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 @Entity // criando tababela e definindo que e entidade para o spring boot
-@Table (name = user.TABLE_NAME) // criando tabela
+@Table(name = user.TABLE_NAME) // criando tabela
 
 public class user {
-    
+
     public static final String TABLE_NAME = "user";
-
-
-
-    
-    
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // gerando codigo
@@ -58,9 +40,7 @@ public class user {
     @Size(groups = { CreateUser.class, UpdateUser.class }, min = 8, max = 60)
     private String password;
 
-   
-     
-     @OneToMany(mappedBy = "User") // um usuario pode ter varias tarefas
-     @JsonProperty(access = Access.WRITE_ONLY)
-     private List<Task> tasks = new ArrayList<Task>();
+    @OneToMany(mappedBy = "User") // um usuario pode ter varias tarefas
+    @JsonProperty(access = Access.WRITE_ONLY)
+    private List<Task> tasks = new ArrayList<Task>();
 }
